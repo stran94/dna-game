@@ -5,10 +5,16 @@ using UnityEngine;
 [System.Serializable]
 public class Nucleotide
 {
-    public char nucleotide;
+    public string nucleotide;
+    private DNADisplay display;
 
-    public Nucleotide(char n)
+    // Pass in a nucelotide char and DNADisplay d, create the objects, and display the objects
+    public Nucleotide(string n, DNADisplay d)
     {
         nucleotide = n;
+        display = d;
+        display.SetDNA(n);
     }
+
+
 }

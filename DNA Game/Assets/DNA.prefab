@@ -86,3 +86,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b701ef86e8a976247bd0b6506cbb1881, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  img: {fileID: 5862376163957965920}
+  dnaImg: {fileID: 0}
+  canvas: {fileID: 0}

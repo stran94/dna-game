@@ -8,6 +8,8 @@ public class DNAManager : MonoBehaviour
 
     public List<Nucleotide> nucleotides;
 
+    public DNASpawner dnaSpawner;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -23,7 +25,8 @@ public class DNAManager : MonoBehaviour
         for (int i = 0; i < stringChars.Length; i++)
         {
             stringChars[i] = chars[random.Next(chars.Length)];
-            Nucleotide nucleotide = new Nucleotide(stringChars[i]);
+            Nucleotide nucleotide = new Nucleotide(System.Char.ToString(stringChars[i]), dnaSpawner.SpawnDNA());
+            //Nucleotide nucleotide = new Nucleotide(System.Char.ToString(stringChars[i]));
             Debug.Log(nucleotide.nucleotide);
             nucleotides.Add(nucleotide);
         }
