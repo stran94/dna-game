@@ -23,15 +23,6 @@ public class DNADisplay : MonoBehaviour
         Sprite green = Resources.Load<Sprite>("green");
         Sprite red = Resources.Load<Sprite>("red");
 
-        // Delete this when you know it's working :)
-        if (Debug.isDebugBuild)
-        {
-            Debug.Log("blue = " + blue);
-            Debug.Log("yellow = " + yellow);
-            Debug.Log("green = " + green);
-            Debug.Log("red = " + red);
-        }
-
         if (nuc == "A")
         {
             //img = GameObject.Instantiate(Resources.Load("blue")) as Image;
