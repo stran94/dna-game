@@ -46,6 +46,11 @@ public class DNADisplay : MonoBehaviour
         //img.transform.SetParent(canvas.transform, false);
     }
 
+    public void RemoveNucleotide()
+    {
+        Destroy(gameObject);
+    }
+
     /*public void CreateImg()
     {
         var createImg = Instantiate(dnaImg) as GameObject;

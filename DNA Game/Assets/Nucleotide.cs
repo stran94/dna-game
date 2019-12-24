@@ -16,5 +16,9 @@ public class Nucleotide
         display.SetDNA(n);
     }
 
+    public void RemoveNucleotide()
+    {
+        display.RemoveNucleotide();
+    }
 
 }

@@ -543,6 +543,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nucleotides: []
   dnaSpawner: {fileID: 1170980641}
+  A_Button: {fileID: 1615028083}
+  T_Button: {fileID: 1751180174}
+  C_Button: {fileID: 369735136}
+  G_Button: {fileID: 713455063}
 --- !u!4 &1170980640
 Transform:
   m_ObjectHideFlags: 0
