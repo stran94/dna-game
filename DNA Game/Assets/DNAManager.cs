@@ -34,16 +34,30 @@ public class DNAManager : MonoBehaviour
         for (int i = 0; i < stringChars.Length; i++)
         {
             stringChars[i] = chars[random.Next(chars.Length)];
-            Nucleotide nucleotide = new Nucleotide(System.Char.ToString(stringChars[i]), dnaSpawner.SpawnDNA());
-            //Nucleotide nucleotide = new Nucleotide(System.Char.ToString(stringChars[i]));
-            Debug.Log(nucleotide.nucleotide);
-            nucleotides.Add(nucleotide);
+            //Nucleotide nucleotide = new Nucleotide(System.Char.ToString(stringChars[i]), dnaSpawner.SpawnDNA());
+            //Debug.Log(nucleotide.nucleotide);
+            //nucleotides.Add(nucleotide);
 
             finalString += System.Char.ToString(stringChars[i]);
         }
 
         Debug.Log("FINAL STRING: " + finalString);
+        String reverseString = Reverse(finalString);
+        for (int j = 0; j < reverseString.Length; j++)
+        {
+            Nucleotide nucleotide = new Nucleotide(System.Char.ToString(reverseString[j]), dnaSpawner.SpawnDNA());
+            Debug.Log(nucleotide.nucleotide);
+            nucleotides.Add(nucleotide);    // this list is for reverseString
+        }
+        nucleotides.Reverse();  // We have to reverse the list so that it's back to normal so that EnterLetter() is correct
 
+    }
+
+    public static string Reverse(string s)
+    {
+        char[] charArray = s.ToCharArray();
+        Array.Reverse(charArray);
+        return new string(charArray);
     }
 
     int currIndex = 0;
@@ -102,7 +116,6 @@ public class DNAManager : MonoBehaviour
         Debug.Log("You pressed button A");
         button_pressed = 'A';
         EnterLetter(button_pressed);
-        CheckEndGame();
     }
 
     public void TaskOnClick_T()
@@ -110,7 +123,6 @@ public class DNAManager : MonoBehaviour
         Debug.Log("You pressed button T");
         button_pressed = 'T';
         EnterLetter(button_pressed);
-        CheckEndGame();
     }
 
     public void TaskOnClick_C()
@@ -118,7 +130,6 @@ public class DNAManager : MonoBehaviour
         Debug.Log("You pressed button C");
         button_pressed = 'C';
         EnterLetter(button_pressed);
-        CheckEndGame();
     }
 
     public void TaskOnClick_G()
@@ -126,7 +137,6 @@ public class DNAManager : MonoBehaviour
         Debug.Log("You pressed button G");
         button_pressed = 'G';
         EnterLetter(button_pressed);
-        CheckEndGame();
     }
 
     public void CheckEndGame()
