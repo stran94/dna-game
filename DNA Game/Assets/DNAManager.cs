@@ -13,6 +13,8 @@ public class DNAManager : MonoBehaviour
 
     public Button A_Button, T_Button, C_Button, G_Button;
 
+    public Score timer;
+
     String finalString;
 
     // Start is called before the first frame update
@@ -145,6 +147,7 @@ public class DNAManager : MonoBehaviour
         if (currIndex >= finalString.Length)
         {
             Debug.Log("END OF DNA. END GAME.");
+            timer.End();
             // end game
             // stop listening to buttons
         }
