@@ -11,7 +11,6 @@ public class Score : MonoBehaviour
 
     private float timer;
     private static bool start = true;
-    private bool stop = false;
 
     public void Start()
     {
@@ -53,6 +52,5 @@ public class Score : MonoBehaviour
     public void End()
     {
         start = false;
-        stop = true;
     }
 }

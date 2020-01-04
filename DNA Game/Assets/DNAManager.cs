@@ -15,6 +15,8 @@ public class DNAManager : MonoBehaviour
 
     public Score timer;
 
+    public GameManager gameManager;
+
     String finalString;
 
     // Start is called before the first frame update
@@ -25,6 +27,7 @@ public class DNAManager : MonoBehaviour
         T_Button.onClick.AddListener(TaskOnClick_T);
         C_Button.onClick.AddListener(TaskOnClick_C);
         G_Button.onClick.AddListener(TaskOnClick_G);
+        gameManager.HideGameOver();
     }
 
     public void CreateDNA()
@@ -148,6 +151,7 @@ public class DNAManager : MonoBehaviour
         {
             Debug.Log("END OF DNA. END GAME.");
             timer.End();
+            gameManager.EndGame();
             // end game
             // stop listening to buttons
         }
