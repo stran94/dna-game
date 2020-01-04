@@ -6,6 +6,28 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     public GameObject gameOverPanel;
+    public GameObject menuPanel;
+    public GameObject gamePanel;
+
+    public void HideMenu()
+    {
+        menuPanel.SetActive(false);
+    }
+
+    public void ShowMenu()
+    {
+        menuPanel.SetActive(true);
+    }
+
+    public void HideGame()
+    {
+        gamePanel.SetActive(false);
+    }
+
+    public void ShowGame()
+    {
+        gamePanel.SetActive(true);
+    }
 
     public void HideGameOver()
     {

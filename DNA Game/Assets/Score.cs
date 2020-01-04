@@ -10,12 +10,17 @@ public class Score : MonoBehaviour
     //private TMP_Text uiText;
 
     private float timer;
-    private static bool start = true;
+    private static bool start = false;
 
     public void Start()
     {
         timer = 0.0f;
         uiText.text = timer.ToString("F");
+    }
+
+    public void StartTimer()
+    {
+        start = true;
     }
 
     void Update()

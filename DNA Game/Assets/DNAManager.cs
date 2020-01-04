@@ -8,32 +8,47 @@ public class DNAManager : MonoBehaviour
 {
 
     public List<Nucleotide> nucleotides;
-
     public DNASpawner dnaSpawner;
-
-    public Button A_Button, T_Button, C_Button, G_Button;
-
+    public Button A_Button, T_Button, C_Button, G_Button, easy, medium, hard;
     public Score timer;
-
     public GameManager gameManager;
 
     String finalString;
+    int difficulty;
 
     // Start is called before the first frame update
     private void Start()
     {
-        CreateDNA();
+        /*CreateDNA();
         A_Button.onClick.AddListener(TaskOnClick_A);
         T_Button.onClick.AddListener(TaskOnClick_T);
         C_Button.onClick.AddListener(TaskOnClick_C);
         G_Button.onClick.AddListener(TaskOnClick_G);
+        gameManager.HideGameOver();*/
+
         gameManager.HideGameOver();
+        gameManager.HideGame();
+        gameManager.ShowMenu();
+        easy.onClick.AddListener(TaskOnClick_easy);
+        medium.onClick.AddListener(TaskOnClick_medium);
+        hard.onClick.AddListener(TaskOnClick_hard);
     }
 
-    public void CreateDNA()
+    private void Play()
+    {
+        CreateDNA(difficulty);
+        gameManager.ShowGame();
+        timer.StartTimer();
+        A_Button.onClick.AddListener(TaskOnClick_A);
+        T_Button.onClick.AddListener(TaskOnClick_T);
+        C_Button.onClick.AddListener(TaskOnClick_C);
+        G_Button.onClick.AddListener(TaskOnClick_G);
+    }
+
+    public void CreateDNA(int difficulty)
     {
         var chars = "ATCG";
-        var stringChars = new char[8];
+        var stringChars = new char[difficulty];
         var random = new System.Random();
 
         for (int i = 0; i < stringChars.Length; i++)
@@ -142,6 +157,27 @@ public class DNAManager : MonoBehaviour
         Debug.Log("You pressed button G");
         button_pressed = 'G';
         EnterLetter(button_pressed);
+    }
+
+    public void TaskOnClick_easy()
+    {
+        difficulty = 10;
+        gameManager.HideMenu();
+        Play();
+    }
+
+    public void TaskOnClick_medium()
+    {
+        difficulty = 20;
+        gameManager.HideMenu();
+        Play();
+    }
+
+    public void TaskOnClick_hard()
+    {
+        difficulty = 40;
+        gameManager.HideMenu();
+        Play();
     }
 
     public void CheckEndGame()
